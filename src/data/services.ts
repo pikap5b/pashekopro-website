@@ -27,7 +27,7 @@ export const services: Service[] = [
     title: 'Tileworks',
     description: 'Complete tile installation, repair, and restoration services for bathrooms, kitchens, and other areas. We work with various tile materials including ceramic, porcelain, natural stone, and mosaic.',
     icon: 'Grid2X2',
-    imageUrl: 'hhttps://i.postimg.cc/j5cRbG1J/floor.png'
+    imageUrl: 'https://i.postimg.cc/j5cRbG1J/floor.png'
   },
   {
     id: 'plasterboard',
