@@ -35,7 +35,7 @@ export const galleryItems: GalleryItem[] = [
     id: '6',
     serviceId: 'flooring',
     title: 'Concrete Floor Painting',
-    imageUrl: 'https://images.pexels.com/photos/6508318/pexels-photo-6508318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://i.postimg.cc/m2wY6ssW/image-2025-05-28-153131105.png'
   },
   {
     id: '7',
