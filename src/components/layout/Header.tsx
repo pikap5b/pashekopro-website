@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -37,6 +37,16 @@ const Header: React.FC = () => {
     { name: t('navigation.contact'), path: '/contact' },
   ];
 
+  const LangButton = ({ code, label }: { code: string; label: string }) => (
+    <button
+      onClick={() => i18n.changeLanguage(code)}
+      className={`ml-2 font-bold text-red-600 hover:underline focus:outline-none ${i18n.language.startsWith(code) ? 'underline' : ''}`}
+      aria-label={`Switch to ${label}`}
+    >
+      {label}
+    </button>
+  );
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -53,7 +63,7 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -67,6 +77,9 @@ const Header: React.FC = () => {
                 {link.name}
               </Link>
             ))}
+            {/* Language buttons */}
+            <LangButton code="en" label="EN" />
+            <LangButton code="ru" label="RU" />
           </nav>
 
           <div className="hidden md:block">
@@ -112,6 +125,10 @@ const Header: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
+              <div className="flex space-x-2 mt-2">
+                <LangButton code="en" label="EN" />
+                <LangButton code="ru" label="RU" />
+              </div>
               <Link
                 to="/quote"
                 className="px-6 py-2 bg-primary-500 text-white rounded-md font-medium hover:bg-primary-600 transition-colors duration-200 text-center mt-2"
