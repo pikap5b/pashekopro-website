@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PaintBucket, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,11 +30,11 @@ const Header: React.FC = () => {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('navigation.home'), path: '/' },
+    { name: t('navigation.services'), path: '/services' },
+    { name: t('navigation.gallery'), path: '/gallery' },
+    { name: t('navigation.blog'), path: '/blog' },
+    { name: t('navigation.contact'), path: '/contact' },
   ];
 
   return (
@@ -72,7 +74,7 @@ const Header: React.FC = () => {
               to="/quote"
               className="px-6 py-2 bg-primary-500 text-white rounded-md font-medium hover:bg-primary-600 transition-colors duration-200"
             >
-              Get a Quote
+              {t('home.cta')}
             </Link>
           </div>
 
@@ -114,7 +116,7 @@ const Header: React.FC = () => {
                 to="/quote"
                 className="px-6 py-2 bg-primary-500 text-white rounded-md font-medium hover:bg-primary-600 transition-colors duration-200 text-center mt-2"
               >
-                Get a Quote
+                {t('home.cta')}
               </Link>
             </nav>
           </div>

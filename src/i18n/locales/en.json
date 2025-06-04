@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Professional Painting Services",
+    "subtitle": "Transform your space with our expert painting solutions",
+    "cta": "Get a Free Quote"
+  },
+  "services": {
+    "title": "Our Services",
+    "interior": "Interior Painting",
+    "exterior": "Exterior Painting",
+    "commercial": "Commercial Painting",
+    "residential": "Residential Painting"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a team of professional painters dedicated to delivering high-quality painting services."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  }
+} 

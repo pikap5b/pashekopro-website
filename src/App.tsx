@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -13,9 +15,14 @@ import ContactPage from './pages/ContactPage';
 import QuotePage from './pages/QuotePage';
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <div className="absolute top-4 right-4 z-50">
+          <LanguageSwitcher />
+        </div>
         <Header />
         <div className="flex-grow">
           <Routes>
