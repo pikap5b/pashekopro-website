@@ -1,16 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Button from '../common/Button';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center pt-16">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.pexels.com/photos/6444268/pexels-photo-6444268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-          alt="House painting"
+          alt={t('home.title')}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -25,7 +28,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Transform Your Space with Professional Painting Services
+            {t('home.title')}
           </motion.h1>
           
           <motion.p 
@@ -34,8 +37,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            PashekoPro delivers premium painting and renovation services in Cyprus. 
-            From wall painting to complete renovations, we bring your vision to life with expertise and quality.
+            {t('home.subtitle')}
           </motion.p>
           
           <motion.div 
@@ -45,10 +47,10 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Button to="/services" size="lg">
-              Our Services
+              {t('navigation.services')}
             </Button>
             <Button to="/quote" variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border-white text-white">
-              Get a Quote
+              {t('home.cta')}
             </Button>
           </motion.div>
         </div>
