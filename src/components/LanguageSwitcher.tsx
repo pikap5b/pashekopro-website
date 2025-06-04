@@ -1,10 +1,16 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    console.log('Changing language to:', lng);
+    i18n.changeLanguage(lng).then(() => {
+      console.log('Language changed to:', i18n.language);
+    }).catch((err) => {
+      console.error('Error changing language:', err);
+    });
   };
 
   return (

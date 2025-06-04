@@ -18,9 +18,16 @@ i18n
       }
     },
     fallbackLng: 'en',
+    debug: true,
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
+    },
     interpolation: {
       escapeValue: false
     }
   });
+
+console.log('Current language:', i18n.language);
 
 export default i18n; 
