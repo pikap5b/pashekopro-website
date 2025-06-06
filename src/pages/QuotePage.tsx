@@ -4,8 +4,10 @@ import { Upload, Check } from 'lucide-react';
 import { services } from '../data/services';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
+import { useTranslation } from 'react-i18next';
 
 const QuotePage: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -81,9 +83,9 @@ const QuotePage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">Request a Quote</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">{t('quote.title')}</h1>
             <p className="text-xl text-neutral-600">
-              Fill out the form below with your project details and we'll provide you with a free, no-obligation quote
+              {t('quote.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -94,8 +96,8 @@ const QuotePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
             <SectionTitle 
-              title="Project Details"
-              subtitle="Tell us about your project so we can provide an accurate quote"
+              title={t('quote.detailsTitle')}
+              subtitle={t('quote.detailsSubtitle')}
             />
             
             {isSubmitted ? (
@@ -107,17 +109,17 @@ const QuotePage: React.FC = () => {
                 <div className="inline-flex items-center justify-center bg-green-100 rounded-full p-3 mb-4">
                   <Check size={32} className="text-green-500" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Quote Request Submitted!</h3>
-                <p className="mb-4">Thank you for your interest in our services. Our team will review your project details and get back to you within 24-48 hours with a detailed quote.</p>
+                <h3 className="text-xl font-bold mb-2">{t('quote.submittedTitle')}</h3>
+                <p className="mb-4">{t('quote.submittedMessage')}</p>
                 <Button to="/" variant="outline" className="mt-2">
-                  Return to Home
+                  {t('quote.returnHome')}
                 </Button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Your Name *</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.name')}</label>
                     <input
                       type="text"
                       id="name"
@@ -130,7 +132,7 @@ const QuotePage: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email Address *</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.email')}</label>
                     <input
                       type="email"
                       id="email"
@@ -145,7 +147,7 @@ const QuotePage: React.FC = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">Phone Number *</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.phone')}</label>
                     <input
                       type="tel"
                       id="phone"
@@ -158,7 +160,7 @@ const QuotePage: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="city" className="block text-sm font-medium text-neutral-700 mb-1">City/Town *</label>
+                    <label htmlFor="city" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.city')}</label>
                     <input
                       type="text"
                       id="city"
@@ -172,7 +174,7 @@ const QuotePage: React.FC = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="service" className="block text-sm font-medium text-neutral-700 mb-1">Service Required *</label>
+                  <label htmlFor="service" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.service')}</label>
                   <select
                     id="service"
                     name="service"
@@ -181,17 +183,17 @@ const QuotePage: React.FC = () => {
                     required
                     className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   >
-                    <option value="">Select a service</option>
+                    <option value="">{t('quote.selectService')}</option>
                     {services.map(service => (
                       <option key={service.id} value={service.id}>
-                        {service.title}
+                        {t(`services.${service.id}.title`)}
                       </option>
                     ))}
                   </select>
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Project Details *</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.projectDetails')}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -205,54 +207,44 @@ const QuotePage: React.FC = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">Attach Photos (Optional)</label>
-                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 border-dashed rounded-md">
-                    <div className="space-y-1 text-center">
-                      <Upload size={24} className="mx-auto text-neutral-400" />
-                      <div className="flex text-sm text-neutral-600">
-                        <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-primary-500 hover:text-primary-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500">
-                          <span>Upload files</span>
-                          <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={handleFileChange} />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs text-neutral-500">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">{t('quote.uploadPhotos')}</label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="file"
+                      multiple
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      className="block w-full text-sm text-neutral-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
+                    />
+                    <Upload size={20} className="text-primary-500" />
                   </div>
-                </div>
-                
-                {files.length > 0 && (
-                  <div className="mb-6">
-                    <h3 className="text-sm font-medium text-neutral-700 mb-2">Attached Files:</h3>
-                    <ul className="space-y-2">
-                      {files.map((file, index) => (
-                        <li key={index} className="flex items-center justify-between bg-neutral-50 p-2 rounded-md">
-                          <span className="text-sm text-neutral-600 truncate">{file.name}</span>
+                  {files.length > 0 && (
+                    <ul className="mt-2 space-y-2">
+                      {files.map((file, idx) => (
+                        <li key={idx} className="flex items-center justify-between bg-neutral-100 rounded px-3 py-1">
+                          <span className="truncate text-sm text-neutral-700">{file.name}</span>
                           <button
                             type="button"
-                            onClick={() => removeFile(index)}
-                            className="text-red-500 hover:text-red-700"
+                            onClick={() => removeFile(idx)}
+                            className="ml-2 text-red-500 hover:text-red-700 text-xs font-medium"
                           >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
+                            {t('quote.remove')}
                           </button>
                         </li>
                       ))}
                     </ul>
-                  </div>
-                )}
+                  )}
+                </div>
                 
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 
                 <Button 
                   type="submit" 
-                  className={`w-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                   size="lg"
+                  className={`w-full flex items-center justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
+                  {isSubmitting ? t('quote.sending') : t('quote.submit')}
                 </Button>
               </form>
             )}

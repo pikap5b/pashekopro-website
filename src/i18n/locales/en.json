@@ -7,11 +7,11 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "Transform Your Space with Professional Painting Services",
+    "title": "Transform Your Space with Professional PashekoPro Services",
     "subtitle": "PashekoPro delivers premium painting and renovation services in Cyprus. From wall painting to complete renovations, we bring your vision to life with expertise and quality.",
     "cta": "Get a Free Quote",
     "servicesTitle": "Our Services",
-    "servicesSubtitle": "Discover our comprehensive range of professional painting services for your home or business",
+    "servicesSubtitle": "Discover our comprehensive range of professional PashekoPro services for your home or business",
     "viewAllServices": "View All Services",
     "aboutTitle": "Why Choose PashekoPro",
     "aboutSubtitle": "We deliver exceptional quality and reliable service for all your painting needs",
@@ -114,5 +114,25 @@
     "quickLinks": "Quick Links",
     "contact": "Contact Us",
     "rights": "All rights reserved."
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Fill out the form below with your project details and we'll provide you with a free, no-obligation quote",
+    "detailsTitle": "Project Details",
+    "detailsSubtitle": "Tell us about your project so we can provide an accurate quote",
+    "name": "Your Name *",
+    "email": "Email Address *",
+    "phone": "Phone Number *",
+    "city": "City/Town *",
+    "service": "Service Required *",
+    "selectService": "Select a service",
+    "projectDetails": "Project Details *",
+    "uploadPhotos": "Upload Photos (optional)",
+    "remove": "Remove",
+    "submit": "Submit Request",
+    "sending": "Submitting...",
+    "submittedTitle": "Quote Request Submitted!",
+    "submittedMessage": "Thank you for your interest in our services. Our team will review your project details and get back to you within 24-48 hours with a detailed quote.",
+    "returnHome": "Return to Home"
   }
 } 
