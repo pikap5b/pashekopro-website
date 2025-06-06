@@ -45,9 +45,46 @@
   },
   "contact": {
     "title": "Contact Us",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send Message"
+    "subtitle": "We'd love to hear from you. Get in touch with our team for inquiries, quotes, or general information.",
+    "formTitle": "Send Us a Message",
+    "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible",
+    "name": "Your Name *",
+    "email": "Email Address *",
+    "phone": "Phone Number",
+    "message": "Your Message *",
+    "thankYou": "Thank you for your message! We'll get back to you soon.",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "infoTitle": "Contact Information",
+    "infoSubtitle": "Here's how you can reach us directly",
+    "locationTitle": "Our Location",
+    "location": "Limassol, Cyprus",
+    "phoneTitle": "Phone Number",
+    "emailTitle": "Email Address",
+    "hoursTitle": "Business Hours",
+    "hoursWeekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
+    "hoursSaturday": "Saturday: 9:00 AM - 2:00 PM",
+    "hoursSunday": "Sunday: Closed"
+  },
+  "gallery": {
+    "title": "Our Gallery",
+    "subtitle": "Browse through our portfolio of completed projects to see the quality of our workmanship",
+    "all": "All Projects",
+    "noProjects": "No projects found for this category."
+  },
+  "blog": {
+    "title": "Our Blog",
+    "subtitle": "Tips, insights, and inspiration for your painting and renovation projects",
+    "back": "Back to All Articles",
+    "ctaTitle": "Ready to Start Your Project?",
+    "ctaSubtitle": "Contact us today for a free consultation and quote. Let our professional team bring your vision to life.",
+    "requestQuote": "Request a Quote"
+  },
+  "footer": {
+    "description": "Professional painting services in Cyprus. Quality workmanship and customer satisfaction guaranteed.",
+    "services": "Our Services",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Us",
+    "rights": "All rights reserved."
   }
 } 

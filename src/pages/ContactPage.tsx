@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
+import { useTranslation } from 'react-i18next';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ const ContactPage: React.FC = () => {
     phone: '',
     message: '',
   });
-  
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -63,9 +64,9 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">{t('contact.title')}</h1>
             <p className="text-xl text-neutral-600">
-              We'd love to hear from you. Get in touch with our team for inquiries, quotes, or general information.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -82,13 +83,13 @@ const ContactPage: React.FC = () => {
               transition={{ duration: 0.6 }}
             >
               <SectionTitle 
-                title="Send Us a Message"
-                subtitle="Fill out the form below and we'll get back to you as soon as possible"
+                title={t('contact.formTitle')}
+                subtitle={t('contact.formSubtitle')}
               />
               
               <form onSubmit={handleSubmit} className="mt-8">
                 <div className="mb-6">
-                  <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Your Name *</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">{t('contact.name')}</label>
                   <input
                     type="text"
                     id="name"
@@ -101,7 +102,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email Address *</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">{t('contact.email')}</label>
                   <input
                     type="email"
                     id="email"
@@ -114,7 +115,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">{t('contact.phone')}</label>
                   <input
                     type="tel"
                     id="phone"
@@ -126,7 +127,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Your Message *</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">{t('contact.message')}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -142,7 +143,7 @@ const ContactPage: React.FC = () => {
                 
                 {isSubmitted ? (
                   <div className="p-4 bg-green-100 text-green-700 rounded-md mb-6">
-                    Thank you for your message! We'll get back to you soon.
+                    {t('contact.thankYou')}
                   </div>
                 ) : (
                   <Button 
@@ -150,9 +151,9 @@ const ContactPage: React.FC = () => {
                     className={`flex items-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                     size="lg"
                   >
-                    {isSubmitting ? 'Sending...' : (
+                    {isSubmitting ? t('contact.sending') : (
                       <>
-                        Send Message
+                        {t('contact.send')}
                         <Send size={18} className="ml-2" />
                       </>
                     )}
@@ -168,8 +169,8 @@ const ContactPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <SectionTitle 
-                title="Contact Information"
-                subtitle="Here's how you can reach us directly"
+                title={t('contact.infoTitle')}
+                subtitle={t('contact.infoSubtitle')}
               />
               
               <div className="mt-8 space-y-8">
@@ -178,8 +179,8 @@ const ContactPage: React.FC = () => {
                     <MapPin size={24} className="text-primary-500" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-neutral-800 mb-1">Our Location</h3>
-                    <p className="text-neutral-600">Limassol, Cyprus</p>
+                    <h3 className="text-lg font-medium text-neutral-800 mb-1">{t('contact.locationTitle')}</h3>
+                    <p className="text-neutral-600">{t('contact.location')}</p>
                   </div>
                 </div>
                 
@@ -188,7 +189,7 @@ const ContactPage: React.FC = () => {
                     <Phone size={24} className="text-primary-500" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-neutral-800 mb-1">Phone Number</h3>
+                    <h3 className="text-lg font-medium text-neutral-800 mb-1">{t('contact.phoneTitle')}</h3>
                     <p className="text-neutral-600">
                       <a href="tel:+35799123456" className="hover:text-primary-500 transition-colors">+357 99 123 456</a>
                     </p>
@@ -200,7 +201,7 @@ const ContactPage: React.FC = () => {
                     <Mail size={24} className="text-primary-500" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-neutral-800 mb-1">Email Address</h3>
+                    <h3 className="text-lg font-medium text-neutral-800 mb-1">{t('contact.emailTitle')}</h3>
                     <p className="text-neutral-600">
                       <a href="mailto:info@pashekopro.com" className="hover:text-primary-500 transition-colors">info@pashekopro.com</a>
                     </p>
@@ -212,10 +213,10 @@ const ContactPage: React.FC = () => {
                     <Clock size={24} className="text-primary-500" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-neutral-800 mb-1">Working Hours</h3>
-                    <p className="text-neutral-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-neutral-600">Saturday: 9:00 AM - 2:00 PM</p>
-                    <p className="text-neutral-600">Sunday: Closed</p>
+                    <h3 className="text-lg font-medium text-neutral-800 mb-1">{t('contact.hoursTitle')}</h3>
+                    <p className="text-neutral-600">{t('contact.hoursWeekdays')}</p>
+                    <p className="text-neutral-600">{t('contact.hoursSaturday')}</p>
+                    <p className="text-neutral-600">{t('contact.hoursSunday')}</p>
                   </div>
                 </div>
               </div>

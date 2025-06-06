@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blog-posts';
 import { Calendar, User, Tag, ArrowLeft } from 'lucide-react';
 import Button from '../components/common/Button';
+import { useTranslation } from 'react-i18next';
 
 const BlogPostPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [post, setPost] = useState(blogPosts.find(post => post.id === id));
+  const { t } = useTranslation();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -94,7 +96,7 @@ const BlogPostPage: React.FC = () => {
           <div className="max-w-3xl mx-auto">
             <Link to="/blog" className="flex items-center text-primary-500 hover:text-primary-600 mb-8 inline-block">
               <ArrowLeft size={18} className="mr-2" />
-              Back to All Articles
+              {t('blog.back')}
             </Link>
             
             <motion.div
@@ -112,12 +114,12 @@ const BlogPostPage: React.FC = () => {
       <section className="py-12 bg-neutral-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-neutral-800 font-heading mb-4">Ready to Start Your Project?</h2>
+            <h2 className="text-2xl font-bold text-neutral-800 font-heading mb-4">{t('blog.ctaTitle')}</h2>
             <p className="text-lg text-neutral-600 mb-6">
-              Contact us today for a free consultation and quote. Let our professional team bring your vision to life.
+              {t('blog.ctaSubtitle')}
             </p>
             <Button to="/quote" size="lg">
-              Request a Quote
+              {t('blog.requestQuote')}
             </Button>
           </div>
         </div>

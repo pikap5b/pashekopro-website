@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blog-posts';
 import BlogCard from '../components/common/BlogCard';
 import SectionTitle from '../components/common/SectionTitle';
+import { useTranslation } from 'react-i18next';
 
 const BlogPage: React.FC = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,9 +22,9 @@ const BlogPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">Our Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">{t('blog.title')}</h1>
             <p className="text-xl text-neutral-600">
-              Tips, insights, and inspiration for your painting and renovation projects
+              {t('blog.subtitle')}
             </p>
           </motion.div>
         </div>

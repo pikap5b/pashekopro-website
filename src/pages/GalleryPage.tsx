@@ -4,10 +4,12 @@ import { services } from '../data/services';
 import { galleryItems } from '../data/gallery';
 import GalleryItem from '../components/common/GalleryItem';
 import SectionTitle from '../components/common/SectionTitle';
+import { useTranslation } from 'react-i18next';
 
 const GalleryPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [filteredItems, setFilteredItems] = useState(galleryItems);
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,9 +34,9 @@ const GalleryPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">Our Gallery</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">{t('gallery.title')}</h1>
             <p className="text-xl text-neutral-600">
-              Browse through our portfolio of completed projects to see the quality of our workmanship
+              {t('gallery.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -53,7 +55,7 @@ const GalleryPage: React.FC = () => {
               }`}
               onClick={() => setActiveFilter('all')}
             >
-              All Projects
+              {t('gallery.all')}
             </button>
             {services.map(service => (
               <button
@@ -65,7 +67,7 @@ const GalleryPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveFilter(service.id)}
               >
-                {service.title}
+                {t(`services.${service.id}.title`)}
               </button>
             ))}
           </div>
@@ -82,7 +84,7 @@ const GalleryPage: React.FC = () => {
 
           {filteredItems.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-xl text-neutral-500">No projects found for this category.</p>
+              <p className="text-xl text-neutral-500">{t('gallery.noProjects')}</p>
             </div>
           )}
         </div>
