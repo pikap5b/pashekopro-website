@@ -4,14 +4,16 @@ import { blogPosts } from '../../data/blog-posts';
 import BlogCard from '../common/BlogCard';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { useTranslation } from 'react-i18next';
 
 const LatestBlog: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
-          title="Latest Articles"
-          subtitle="Tips, insights, and inspiration for your painting and renovation projects"
+          title={t('home.latestArticlesTitle')}
+          subtitle={t('home.latestArticlesSubtitle')}
           centered
         />
         
@@ -29,7 +31,7 @@ const LatestBlog: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Button to="/blog" size="lg">
-            View All Articles
+            {t('home.viewAllArticles')}
           </Button>
         </motion.div>
       </div>

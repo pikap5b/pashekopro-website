@@ -4,8 +4,10 @@ import { galleryItems } from '../../data/gallery';
 import GalleryItem from '../common/GalleryItem';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { useTranslation } from 'react-i18next';
 
 const FeaturedGallery: React.FC = () => {
+  const { t } = useTranslation();
   // Display only first 6 gallery items
   const featuredItems = galleryItems.slice(0, 6);
 
@@ -13,8 +15,8 @@ const FeaturedGallery: React.FC = () => {
     <section className="py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
-          title="Our Work"
-          subtitle="Browse through our portfolio of completed projects to see the quality of our workmanship"
+          title={t('home.workTitle')}
+          subtitle={t('home.workSubtitle')}
           centered
         />
         
@@ -32,7 +34,7 @@ const FeaturedGallery: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Button to="/gallery" size="lg">
-            View All Projects
+            {t('home.viewAllProjects')}
           </Button>
         </motion.div>
       </div>

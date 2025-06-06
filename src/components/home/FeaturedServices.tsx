@@ -4,8 +4,10 @@ import { services } from '../../data/services';
 import ServiceCard from '../common/ServiceCard';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { useTranslation } from 'react-i18next';
 
 const FeaturedServices: React.FC = () => {
+  const { t } = useTranslation();
   // Display only first 3 services
   const featuredServices = services.slice(0, 3);
 
@@ -13,8 +15,8 @@ const FeaturedServices: React.FC = () => {
     <section className="py-16 bg-neutral-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
-          title="Our Services"
-          subtitle="Discover our comprehensive range of professional painting services for your home or business"
+          title={t('home.servicesTitle')}
+          subtitle={t('home.servicesSubtitle')}
           centered
         />
         
@@ -32,7 +34,7 @@ const FeaturedServices: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Button to="/services" size="lg">
-            View All Services
+            {t('home.viewAllServices')}
           </Button>
         </motion.div>
       </div>

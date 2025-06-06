@@ -2,17 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import SectionTitle from '../common/SectionTitle';
+import { useTranslation } from 'react-i18next';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
   const advantages = [
-    'Over 10 years of professional experience',
-    'Certified and skilled painters and craftsmen',
-    'Premium quality materials and paints',
-    'Attention to detail and excellent finish',
-    'Clean and tidy work process',
-    'On-time project completion',
-    'Competitive pricing with no hidden costs',
-    'Full warranty on all completed work'
+    t('home.advantage1'),
+    t('home.advantage2'),
+    t('home.advantage3'),
+    t('home.advantage4'),
+    t('home.advantage5'),
+    t('home.advantage6'),
+    t('home.advantage7'),
+    t('home.advantage8'),
   ];
 
   return (
@@ -33,18 +35,17 @@ const About: React.FC = () => {
               className="rounded-lg shadow-lg w-full h-auto object-cover"
             />
             <div className="absolute -bottom-6 -right-6 bg-primary-500 text-white p-6 rounded-lg shadow-lg hidden md:block">
-              <p className="text-3xl font-bold font-heading">10+</p>
-              <p className="text-sm">Years of Experience</p>
+              <p className="text-3xl font-bold font-heading">{t('home.years')}</p>
+              <p className="text-sm">{t('home.yearsLabel')}</p>
             </div>
           </motion.div>
           
           {/* Content */}
           <div>
             <SectionTitle 
-              title="Why Choose PashekoPro"
-              subtitle="We deliver exceptional quality and reliable service for all your painting needs"
+              title={t('home.aboutTitle')}
+              subtitle={t('home.aboutSubtitle')}
             />
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {advantages.map((advantage, index) => (
                 <motion.div 

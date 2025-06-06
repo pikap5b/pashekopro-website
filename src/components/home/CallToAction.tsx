@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
+import { useTranslation } from 'react-i18next';
 
 const CallToAction: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-primary-500 relative overflow-hidden">
       {/* Background pattern */}
@@ -20,7 +22,7 @@ const CallToAction: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Ready to Transform Your Space?
+            {t('home.ctaTitle')}
           </motion.h2>
           
           <motion.p 
@@ -30,7 +32,7 @@ const CallToAction: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Contact us today for a free consultation and quote. Let our professional team bring your vision to life.
+            {t('home.ctaSubtitle')}
           </motion.p>
           
           <motion.div 
@@ -41,10 +43,10 @@ const CallToAction: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Button to="/quote" variant="outline" size="lg" className="bg-white text-primary-500 border-white hover:bg-white/90">
-              Request a Quote
+              {t('home.requestQuote')}
             </Button>
             <Button to="/contact" size="lg" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white">
-              Contact Us
+              {t('home.contactUs')}
             </Button>
           </motion.div>
         </div>
