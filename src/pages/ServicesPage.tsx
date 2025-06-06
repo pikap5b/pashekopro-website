@@ -5,10 +5,12 @@ import { services } from '../data/services';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
 import { Paintbrush, Palette, LampFloor as FloorPlan, Grid2X2, Square } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ServicesPage: React.FC = () => {
   const location = useLocation();
   const serviceRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,9 +57,9 @@ const ServicesPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">Our Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 font-heading mb-6">{t('services.title')}</h1>
             <p className="text-xl text-neutral-600">
-              Discover our comprehensive range of professional painting and renovation services for your home or business
+              {t('services.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -80,7 +82,7 @@ const ServicesPage: React.FC = () => {
               <div className="lg:w-1/2 mb-8 lg:mb-0">
                 <img 
                   src={service.imageUrl} 
-                  alt={service.title} 
+                  alt={t(`services.${service.id}.title`)} 
                   className="rounded-lg shadow-lg w-full h-auto object-cover" 
                 />
               </div>
@@ -88,10 +90,10 @@ const ServicesPage: React.FC = () => {
                 <div className="mb-6">
                   {getIcon(service.icon)}
                 </div>
-                <h2 className="text-3xl font-bold text-neutral-800 font-heading mb-4">{service.title}</h2>
-                <p className="text-lg text-neutral-600 mb-6">{service.description}</p>
+                <h2 className="text-3xl font-bold text-neutral-800 font-heading mb-4">{t(`services.${service.id}.title`)}</h2>
+                <p className="text-lg text-neutral-600 mb-6">{t(`services.${service.id}.description`)}</p>
                 <Button to="/quote" size="lg">
-                  Get a Quote
+                  {t('services.getQuote')}
                 </Button>
               </div>
             </motion.div>
@@ -103,12 +105,12 @@ const ServicesPage: React.FC = () => {
       <section className="py-16 bg-primary-500">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-6">Ready to Start Your Project?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-6">{t('services.ctaTitle')}</h2>
             <p className="text-xl text-white/90 mb-8">
-              Contact us today for a free consultation and detailed quote. Our team is ready to bring your vision to life.
+              {t('services.ctaSubtitle')}
             </p>
             <Button to="/quote" variant="outline" size="lg" className="bg-white text-primary-500 border-white hover:bg-white/90">
-              Request a Quote
+              {t('services.requestQuote')}
             </Button>
           </div>
         </div>

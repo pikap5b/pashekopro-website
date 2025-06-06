@@ -13,10 +13,31 @@
   },
   "services": {
     "title": "Our Services",
-    "interior": "Interior Painting",
-    "exterior": "Exterior Painting",
-    "commercial": "Commercial Painting",
-    "residential": "Residential Painting"
+    "subtitle": "Discover our comprehensive range of professional painting and renovation services for your home or business",
+    "getQuote": "Get a Quote",
+    "ctaTitle": "Ready to Start Your Project?",
+    "ctaSubtitle": "Contact us today for a free consultation and detailed quote. Our team is ready to bring your vision to life.",
+    "requestQuote": "Request a Quote",
+    "wall-painting": {
+      "title": "Wall Painting",
+      "description": "Professional interior and exterior wall painting with premium quality paints that provide durability and a perfect finish. We use eco-friendly products and modern techniques to ensure the best results."
+    },
+    "wall-design": {
+      "title": "Wall Design Styles",
+      "description": "Creative and unique wall design solutions including textured finishes, decorative painting, murals, and accent walls. Transform your space with our artistic and innovative design approaches."
+    },
+    "flooring": {
+      "title": "Flooring Painting",
+      "description": "Specialized floor painting services for concrete, wood, and other surfaces. Our durable floor paint solutions provide protection against wear and tear while enhancing the aesthetic appeal of your floors."
+    },
+    "tileworks": {
+      "title": "Tileworks",
+      "description": "Complete tile installation, repair, and restoration services for bathrooms, kitchens, and other areas. We work with various tile materials including ceramic, porcelain, natural stone, and mosaic."
+    },
+    "plasterboard": {
+      "title": "Plasterboard Works",
+      "description": "Professional plasterboard installation, repair, and finishing for walls and ceilings. We specialize in drywall partitioning, ceiling systems, and decorative elements to enhance your interior spaces."
+    }
   },
   "about": {
     "title": "About Us",
