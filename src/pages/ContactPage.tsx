@@ -203,7 +203,7 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="text-lg font-medium text-neutral-800 mb-1">{t('contact.emailTitle')}</h3>
                     <p className="text-neutral-600">
-                      <a href="mailto:info@pashekopro.com" className="hover:text-primary-500 transition-colors">info@pashekopro.com</a>
+                      <a href="mailto:ruslan.burbulevich@gmail.com" className="hover:text-primary-500 transition-colors">info@pashekopro.com</a>
                     </p>
                   </div>
                 </div>
