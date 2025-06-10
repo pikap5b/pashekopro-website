@@ -29,23 +29,6 @@ const ServicesPage: React.FC = () => {
     }
   }, [location]);
 
-  const getIcon = (iconName: string, size = 48) => {
-    switch (iconName) {
-      case 'Paintbrush':
-        return <Paintbrush size={size} className="text-primary-500" />;
-      case 'Palette':
-        return <Palette size={size} className="text-primary-500" />;
-      case 'FloorPlan':
-        return <FloorPlan size={size} className="text-primary-500" />;
-      case 'Grid2X2':
-        return <Grid2X2 size={size} className="text-primary-500" />;
-      case 'Square':
-        return <Square size={size} className="text-primary-500" />;
-      default:
-        return <Paintbrush size={size} className="text-primary-500" />;
-    }
-  };
-
   return (
     <main>
       {/* Hero Section */}
@@ -80,16 +63,15 @@ const ServicesPage: React.FC = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="lg:w-1/2 mb-8 lg:mb-0">
-                <img 
-                  src={service.imageUrl} 
-                  alt={t(`services.${service.id}.title`)} 
-                  className="rounded-lg shadow-lg w-full h-auto object-cover" 
-                />
+                <div className="rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={service.imageUrl} 
+                    alt={t(`services.${service.id}.title`)} 
+                    className="w-full h-full object-cover" 
+                  />
+                </div>
               </div>
               <div className="lg:w-1/2">
-                <div className="mb-6">
-                  {getIcon(service.icon)}
-                </div>
                 <h2 className="text-3xl font-bold text-neutral-800 font-heading mb-4">{t(`services.${service.id}.title`)}</h2>
                 <p className="text-lg text-neutral-600 mb-6">{t(`services.${service.id}.description`)}</p>
                 <Button to="/quote" size="lg">
