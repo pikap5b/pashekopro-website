@@ -49,9 +49,7 @@ const Header: React.FC = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white py-4 border-b border-neutral-200"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -63,15 +61,15 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex gap-10 items-center bg-white px-6 py-2 rounded-lg shadow-sm border border-neutral-100">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-medium transition-colors duration-200 ${
+                className={`text-lg font-semibold tracking-wide transition-colors duration-200 px-2 py-1 rounded-md ${
                   location.pathname === link.path
-                    ? 'text-primary-500 border-b-2 border-primary-500'
-                    : 'text-neutral-700 hover:text-primary-500'
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-neutral-700 hover:text-primary-500 hover:bg-neutral-100'
                 }`}
               >
                 {link.name}
@@ -81,15 +79,6 @@ const Header: React.FC = () => {
             <LangButton code="en" label="EN" />
             <LangButton code="ru" label="RU" />
           </nav>
-
-          <div className="hidden md:block">
-            <Link
-              to="/quote"
-              className="px-6 py-2 bg-primary-500 text-white rounded-md font-medium hover:bg-primary-600 transition-colors duration-200"
-            >
-              {t('home.cta')}
-            </Link>
-          </div>
 
           <button
             className="md:hidden text-neutral-700 focus:outline-none"
