@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import CookieConsent from './components/CookieConsent';
 // import { LanguageSwitcher } from './components/LanguageSwitcher';
 
 // Pages
@@ -20,7 +21,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        {/* Removed floating language switcher */}
+        <CookieConsent />
         <Header />
         <div className="flex-grow">
           <Routes>

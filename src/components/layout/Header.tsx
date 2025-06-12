@@ -57,7 +57,7 @@ const Header: React.FC = () => {
             <PaintBucket size={32} className="text-primary-500 mr-2" />
             <div>
               <h1 className="text-xl font-bold text-primary-500 font-heading">PashekoPro</h1>
-              <p className="text-sm font-semibold text-neutral-800"> constructions ltd  </p>
+              <p className="text-sm font-semibold text-neutral-600"> constructions ltd  </p>
             </div>
           </Link>
 
