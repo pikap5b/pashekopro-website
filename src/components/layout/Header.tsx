@@ -40,7 +40,7 @@ const Header: React.FC = () => {
   const LangButton = ({ code, label }: { code: string; label: string }) => (
     <button
       onClick={() => i18n.changeLanguage(code)}
-      className={`ml-2 font-bold text-red-600 hover:underline focus:outline-none ${i18n.language.startsWith(code) ? 'underline' : ''}`}
+      className={`ml-1 font-bold text-red-600 hover:underline focus:outline-none ${i18n.language.startsWith(code) ? 'underline' : ''}`}
       aria-label={`Switch to ${label}`}
     >
       {label}
@@ -57,27 +57,31 @@ const Header: React.FC = () => {
             <PaintBucket size={32} className="text-primary-500 mr-2" />
             <div>
               <h1 className="text-xl font-bold text-primary-500 font-heading">PashekoPro</h1>
-              <p className="text-xs text-neutral-600"> constructions ltd  </p>
+              <p className="text-base font-semibold text-neutral-600"> constructions ltd  </p>
             </div>
           </Link>
 
           <nav className="hidden md:flex gap-10 items-center bg-white px-6 py-2 rounded-lg shadow-sm border border-neutral-100">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`text-lg font-semibold tracking-wide transition-colors duration-200 px-2 py-1 rounded-md ${
-                  location.pathname === link.path
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-neutral-700 hover:text-primary-500 hover:bg-neutral-100'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-lg font-semibold tracking-wide transition-colors duration-200 px-2 py-1 rounded-md ${
+                    location.pathname === link.path
+                      ? 'text-primary-600 bg-primary-50'
+                      : 'text-neutral-700 hover:text-primary-500 hover:bg-neutral-100'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
             {/* Language buttons */}
-            <LangButton code="en" label="EN" />
-            <LangButton code="ru" label="RU" />
+            <div className="flex items-center gap-1">
+              <LangButton code="en" label="EN" />
+              <LangButton code="ru" label="RU" />
+            </div>
           </nav>
 
           <button
@@ -118,12 +122,6 @@ const Header: React.FC = () => {
                 <LangButton code="en" label="EN" />
                 <LangButton code="ru" label="RU" />
               </div>
-              <Link
-                to="/quote"
-                className="px-6 py-2 bg-primary-500 text-white rounded-md font-medium hover:bg-primary-600 transition-colors duration-200 text-center mt-2"
-              >
-                {t('home.cta')}
-              </Link>
             </nav>
           </div>
         </motion.div>

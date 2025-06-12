@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               <PaintBucket size={32} className="text-primary-400 mr-2" />
               <div>
                 <h2 className="text-xl font-bold text-white font-heading">PashekoPro</h2>
-                <p className="text-xs text-neutral-400">  constructions ltd  </p>
+                <p className="text-base font-semibold text-neutral-400">  constructions ltd  </p>
               </div>
             </Link>
             <p className="text-neutral-300 mb-4">
